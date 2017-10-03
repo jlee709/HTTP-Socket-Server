@@ -9,8 +9,9 @@ const PORT = process.env.PORT || 8080;
 var httpHeader;
 
 var server = net.createServer((socket) => {
+  //call back to fire once data recieved
   socket.on('data', (chunk) => {
-    console.log('recieving data',chunk.toString());
+    console.log('recieving data', chunk.toString());
     socket.end();
   });
 
@@ -26,3 +27,8 @@ server.listen(PORT, () => {
   console.log(`listening to ${PORT}`);
 });
 
+
+
+function httpSeperator(){
+  
+}
