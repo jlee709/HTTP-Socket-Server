@@ -7,10 +7,8 @@ console.log('server.js Linked');
 console.log('how to test server here'); 
 
 const net = require('net');
-const http = require('http');
 const PORT = process.env.PORT || 8080;
 const clients = [];
-
 
 
 const server = net.createServer((socket) => {
@@ -19,7 +17,6 @@ const server = net.createServer((socket) => {
   // handle errors here
   throw err;
 });
-
 
 
 
