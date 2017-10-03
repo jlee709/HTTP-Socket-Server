@@ -4,7 +4,7 @@ console.log('client linked');
 
 const http = require('http');
 const net = require('net');
-const PORT = process.env.PORT || 6969;
+const PORT = process.env.PORT || 8080;
 
 // createing slient connection 
 const client = net.createConnection(PORT, () => {
