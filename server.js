@@ -15,7 +15,8 @@ var server = net.createServer((socket) => {
     // thats in 2 callbacks and ends socket after data and call-backs execute
     uriAcc = findUri(data);
     read(uriAcc, function(data){
-    socket.end();
+
+      socket.end();
     });
     // call back data end 
   });
@@ -24,6 +25,7 @@ var server = net.createServer((socket) => {
   // handle errors here
   throw err;
 });
+
 
 server.listen(PORT, () => {
   console.log(`listening to ${PORT}`);
@@ -46,11 +48,12 @@ function findUri(data){
 
 //reading the data
 function read(filename, cb) {
-  let filepath = path.join(__dirname, '..', 'html', filename);
+  let filepath = path.join(__dirname, '.', 'html', filename);
   console.log(filepath,' this is the FILEPATH HERE!');
 
 // asynch doesnt fire till future 
-fs.readFile(filepath, (err, data) => {
+fs.readFile(filepath,'utf8', (err, data) => {
+  if (err) throw err;
   console.log('readFile', data);
   cb(data);
 });
